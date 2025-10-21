@@ -54,7 +54,7 @@ export default function SleekPenStore() {
       name: formData.name,
       phone: formData.phone,
       amount: 349,
-      product: 'Rolio Black Pen'
+      product: 'Rolio Pen'
     });
 
     const razorpayLink = 'https://rzp.io/rzp/chPU7Gb';
@@ -77,8 +77,8 @@ export default function SleekPenStore() {
   };
 
   const faqs = [
-    { q: 'What is the delivery time?', a: 'Standard delivery takes 3-5 business days across India. Express delivery available in select cities.' },
-    { q: 'What is your refund policy?', a: 'We offer a 7-day return policy if the product is unused and in original packaging.' },
+    { q: 'What is the delivery time?', a: 'Standard delivery takes 7-8 business days across India. Express delivery available in select cities.' },
+
     { q: 'What type of ink does it use?', a: 'Premium gel ink with smooth flow, smudge-proof, and long-lasting performance.' },
     { q: 'Is it refillable?', a: 'Yes, the pen accepts standard refills available at most stationery stores.' }
   ];
@@ -110,7 +110,7 @@ export default function SleekPenStore() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1 space-y-6 animate-fade-in">
             <div className="inline-block bg-black text-white px-4 py-1 rounded-full text-sm">Premium Quality</div>
-            <h2 className="text-5xl md:text-6xl font-bold leading-tight">Rolio Black Pen</h2>
+            <h2 className="text-5xl md:text-6xl font-bold leading-tight">Rolio Pen</h2>
             <p className="text-xl text-gray-600 leading-relaxed">
               A premium, minimalistic black pen with ultra-smooth ink flow and elegant design — perfect for students and professionals.
             </p>
@@ -147,7 +147,7 @@ export default function SleekPenStore() {
             <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-12 shadow-2xl">
               <div className="bg-white rounded-2xl p-8 shadow-xl">
                 <div className="aspect-square flex items-center justify-center">
-                  <img src="/pen.jpg" alt="Rolio Black Pen" className="w-64 h-full object-contain transform rotate-90" />
+                  <img src="/pen.jpg" alt="Rolio Pen" className="w-64 h-full object-contain transform rotate-90" />
                 </div>
               </div>
               <div className="absolute -top-4 -right-4 bg-white rounded-full p-4 shadow-xl">
@@ -161,7 +161,7 @@ export default function SleekPenStore() {
       {/* Features */}
       <section className="py-20 bg-gray-50 px-4">
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-3xl font-bold text-center mb-12">Why Choose Rolio Black Pen?</h3>
+          <h3 className="text-3xl font-bold text-center mb-12">Why Choose Rolio Pen?</h3>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { icon: Droplet, title: 'Ultra-Smooth Ink', desc: 'Premium gel ink technology ensures effortless writing' },
