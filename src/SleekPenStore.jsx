@@ -39,8 +39,15 @@ export default function SleekPenStore() {
   };
 
   const handleDirectBuy = () => {
-    window.open('https://rzp.io/rzp/chPU7Gb', '_blank');
-  };
+  const razorpayLink = process.env.REACT_APP_RAZORPAY_LINK;
+
+  if (!razorpayLink) {
+    alert("Payment link not configured");
+    return;
+  }
+
+  window.open(razorpayLink, '_blank');
+};
 
   const handleSubmitOrder = async () => {
     if (!validateForm()) return;
@@ -53,12 +60,18 @@ export default function SleekPenStore() {
       type: 'order',
       name: formData.name,
       phone: formData.phone,
-      amount: 349,
+      amount: 149,
       product: 'Rolio Pen'
     });
 
-    const razorpayLink = 'https://rzp.io/rzp/chPU7Gb';
-    window.open(razorpayLink, '_blank');
+    const razorpayLink = process.env.REACT_APP_RAZORPAY_LINK;
+
+if (!razorpayLink) {
+  alert("Payment link not configured");
+  return;
+}
+
+window.open(razorpayLink, '_blank');
 
     setShowModal(false);
     setFormData({ name: '', phone: '' });
@@ -115,7 +128,7 @@ export default function SleekPenStore() {
               A premium, minimalistic black pen with ultra-smooth ink flow and elegant design — perfect for students and professionals.
             </p>
             <div className="flex items-baseline gap-3">
-              <span className="text-5xl font-bold">₹349</span>
+              <span className="text-5xl font-bold">₹149</span>
               <span className="text-gray-500 line-through text-xl">₹599</span>
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">42% OFF</span>
             </div>
@@ -316,7 +329,7 @@ export default function SleekPenStore() {
               <div className="bg-gray-50 p-4 rounded-lg">
                 <div className="flex justify-between items-center mb-2">
                   <span className="font-semibold">Total Amount:</span>
-                  <span className="text-2xl font-bold">₹349</span>
+                  <span className="text-2xl font-bold">₹149</span>
                 </div>
                 <p className="text-sm text-gray-600">Inclusive of all taxes</p>
               </div>
