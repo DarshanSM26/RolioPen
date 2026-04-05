@@ -117,8 +117,6 @@ window.open(razorpayLink, '_blank');
             </p>
             <div className="flex items-baseline gap-3">
               <span className="text-5xl font-bold">₹149</span>
-              <span className="text-gray-500 line-through text-xl">₹599</span>
-              <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">42% OFF</span>
             </div>
             <p className="text-sm text-gray-500">Inclusive of all taxes • Free Shipping</p>
             <div className="flex gap-4 pt-4">
