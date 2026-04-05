@@ -3,13 +3,13 @@ import { ShoppingCart, Star, Check, Facebook, Twitter, Instagram, ChevronDown, P
 
 export default function SleekPenStore() {
   const [formData, setFormData] = useState({ name: '', phone: '' });
-  const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
+
   const [errors, setErrors] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState(null);
   const [scrollY, setScrollY] = useState(0);
-  const [orders, setOrders] = useState([]);
+ 
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -18,9 +18,7 @@ export default function SleekPenStore() {
   }, []);
 
   const saveToMemory = (data) => {
-    const timestamp = new Date().toISOString();
-    const record = { ...data, timestamp, id: Date.now() };
-    setOrders(prev => [...prev, record]);
+    const record = { ...data, timestamp: new Date().toISOString(), id: Date.now() };
     console.log('Order saved:', record);
     return record;
   };
@@ -34,9 +32,7 @@ export default function SleekPenStore() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleBuyNow = () => {
-    setShowModal(true);
-  };
+ 
 
   const handleDirectBuy = () => {
   const razorpayLink = process.env.REACT_APP_RAZORPAY_LINK;
@@ -79,18 +75,10 @@ window.open(razorpayLink, '_blank');
     alert('✓ Information saved! Redirecting to payment gateway...');
   };
 
-  const handleContactSubmit = () => {
-    if (!contactForm.name || !contactForm.email || !contactForm.message) {
-      alert('Please fill all fields');
-      return;
-    }
-    saveToMemory({ type: 'contact', ...contactForm });
-    alert('✓ Thank you! We will get back to you soon.');
-    setContactForm({ name: '', email: '', message: '' });
-  };
+
 
   const faqs = [
-    { q: 'What is the delivery time?', a: 'Standard delivery takes 7-8 business days across India. Express delivery available in select cities.' },
+    { q: 'What is the delivery time?', a: 'Standard delivery takes 2-3 business days across India. Express delivery available in select cities.' },
 
     { q: 'What type of ink does it use?', a: 'Premium gel ink with smooth flow, smudge-proof, and long-lasting performance.' },
     { q: 'Is it refillable?', a: 'Yes, the pen accepts standard refills available at most stationery stores.' }
@@ -236,47 +224,7 @@ window.open(razorpayLink, '_blank');
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section className="py-20 px-4">
-        <div className="max-w-2xl mx-auto">
-          <h3 className="text-3xl font-bold text-center mb-12">Get In Touch</h3>
-          <div className="bg-white p-8 rounded-2xl shadow-lg space-y-6">
-            <div>
-              <label className="block font-semibold mb-2">Name</label>
-              <input
-                type="text"
-                value={contactForm.name}
-                onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none"
-              />
-            </div>
-            <div>
-              <label className="block font-semibold mb-2">Email</label>
-              <input
-                type="email"
-                value={contactForm.email}
-                onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none"
-              />
-            </div>
-            <div>
-              <label className="block font-semibold mb-2">Message</label>
-              <textarea
-                rows={4}
-                value={contactForm.message}
-                onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none"
-              />
-            </div>
-            <button
-              onClick={handleContactSubmit}
-              className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition-all font-semibold"
-            >
-              Send Message
-            </button>
-          </div>
-        </div>
-      </section>
+
 
       {/* Footer */}
       <footer className="bg-black text-white py-12 px-4">
@@ -287,9 +235,17 @@ window.open(razorpayLink, '_blank');
               <p className="text-gray-400">Write with elegance, express with style</p>
             </div>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-gray-400 transition-colors"><Facebook /></a>
-              <a href="#" className="hover:text-gray-400 transition-colors"><Twitter /></a>
-              <a href="#" className="hover:text-gray-400 transition-colors"><Instagram /></a>
+              <a href="https://facebook.com" target="_blank" rel="noreferrer">
+  <Facebook />
+</a>
+
+<a href="https://twitter.com" target="_blank" rel="noreferrer">
+  <Twitter />
+</a>
+
+<a href="https://instagram.com" target="_blank" rel="noreferrer">
+  <Instagram />
+</a>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
